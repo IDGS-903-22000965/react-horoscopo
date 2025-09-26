@@ -234,6 +234,10 @@ body::before {
     0 0 0 1px rgba(255, 215, 0, 0.2);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;  
+  gap: 1.5rem;
+  padding: 2rem;
 }
 
 @keyframes slideInScale {
@@ -459,7 +463,7 @@ body::before {
 
 .btn-secondary {
   background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-  margin: 1.5rem auto 0;
+  margin: 0 auto;
   width: auto;
   padding: 1rem 2rem;
   font-size: 1rem;
@@ -471,6 +475,7 @@ body::before {
   letter-spacing: 0.5px;
   display: block;
   text-align: center;
+  align-self: center;
 }
 
 .btn-secondary:hover {
