@@ -1,0 +1,158 @@
+.carrusel-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
+}
+
+.carrusel-fondo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(0, 123, 255, 0.1) 0%, transparent 50%),
+    linear-gradient(45deg, rgba(0, 0, 0, 0.2) 25%, transparent 25%);
+  pointer-events: none;
+}
+
+.carrusel-track {
+  display: flex;
+  width: calc(200px * 24); 
+  height: 100vh;
+  flex-direction: row;
+  align-items: center;
+  animation: deslizar 60s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes deslizar {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); 
+  }
+}
+
+.carrusel-item {
+  min-width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 20px;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.carrusel-item:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.carrusel-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 215, 0, 0.4);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(255, 215, 0, 0.2);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.carrusel-item:hover .carrusel-logo {
+  border-color: rgba(255, 215, 0, 0.8);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(255, 215, 0, 0.4);
+  transform: rotate(5deg);
+}
+
+.carrusel-nombre {
+  margin-top: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-family: 'Inter', system-ui, sans-serif;
+  letter-spacing: 0.5px;
+  background: linear-gradient(45deg, #ffffff, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 768px) {
+  .carrusel-track {
+    flex-direction: column;
+    width: 100%;
+    height: calc(250px * 24); 
+    animation: deslizarVertical 80s linear infinite;
+  }
+
+  @keyframes deslizarVertical {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+
+  .carrusel-item {
+    min-width: auto;
+    width: 150px;
+    height: 250px;
+    margin: 10px 0;
+  }
+
+  .carrusel-logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .carrusel-nombre {
+    font-size: 1rem;
+  }
+}
+
+.carrusel-fondo::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 215, 0, 0.3), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255, 215, 0, 0.3), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(2px 2px at 160px 30px, rgba(255, 215, 0, 0.3), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: particulas 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes particulas {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}

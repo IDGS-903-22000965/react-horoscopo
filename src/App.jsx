@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SignosZodiacales from "./components/SignosZodiacales";
+import CarruselFondo from "./components/CarruselFondo";
 
 function App() {
   const [nombre, setNombre] = useState("");
@@ -45,6 +46,9 @@ function App() {
 
   return (
     <div className="app">
+      {/* Agregamos el carrusel de fondo */}
+      <CarruselFondo />
+
       <div className="header">
         <h1>Horóscopo App</h1>
         <p>Descubre tu signo zodiacal y tu mensaje personalizado</p>
